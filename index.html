@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Calcul TNB</title>
+</head>
+<body>
+    <div class="container-fluid mt-3 d-flex justify-content-around">
+        <span class="logo">
+            <img src="Images/royaume-du-maroc.png" alt="" class="d-none d-sm-inline-block" style="width:15%">
+        </span>
+        <span class="text-center align-middle mt-3">
+            <h5>حساب الرسم المفروض على الأراضي</h5>
+            <h5>الحضرية الغير مبنية</h5>
+        </span>
+    </div>
+    <div class="container py-3 my-5" id="hidden" style="box-shadow: 0px 0px 40px #888888; border-radius: 15px;">
+        <form action="">
+            <div class="row">
+                <span class="col-sm-12 col-md-4 col-xl-3">
+                    <label for="date_debut">date debut</label>
+                    <input id="date_debut" class="form-control" type="year" required>
+                </span>
+
+                <span class="col-sm-12 col-md-4 col-xl-3">
+                    <label for="date_fin">date fin</label>
+                    <input id="date_fin" class="form-control" type="text" required>
+                </span>
+
+                <span class="col-sm-12 col-md-4 col-xl-3">
+                    <label for="surface">surface</label>
+                    <input id="surface" class="form-control" type="text" value="100">
+                </span>
+
+                <span class="col-sm-12 col-md-4 col-xl-3">
+                    <label for="tarif">tarif</label>
+                    <select id="tarif" class="form-control">
+                        <option value="Villa">Villa (2)</option>
+                        <option value="Individuel">Individuel (2)</option>
+                        <option value="Autre">Autre (2)</option>
+                        <option value="Logement">Logement (4)</option>
+                    </select>
+                </span>
+                <span class="col-sm-12 col-md-8 col-xl-8 mt-3">
+                    <input type="button" class="btn btn-primary mt-2" value="Calculer" onclick='calculer()'>
+                    <input type="button" class="btn btn-primary mt-2" value="Imprimer" onclick='printContent()'>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="container-fluid">
+        <table class="table table-striped" id="tablePrint" dir="rtl">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">السنة</th>
+                <th scope="col">المساحة</th>
+                <th scope="col">التعريفة</th>
+                <th scope="col">المبلغ</th>
+                <th scope="col" class="d-none d-sm-table-cell">زيادة 15%</th>
+                <th scope="col" class="d-none d-sm-table-cell">ذعيرة 10%</th>
+                <th scope="col" class="d-none d-sm-table-cell">ذعيرة 5%</th>
+                <th scope="col" class="d-none d-sm-table-cell">أشهر التأخير</th>
+                <th scope="col" class="d-none d-sm-table-cell">ذعيرة 0.5%</th>
+                <th scope="col">مجموع الزيادات</th>
+                <th scope="col">الواجب أداؤه</th>
+              </tr>
+            </thead>
+            <tbody id="zone_affichage">
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex justify-content-between fs-5 fw-bold mb-4" dir="rtl">
+        <span id="current_date" class="me-4">
+            أولاد يوسف في :
+        </span>
+        <span id="total" class="ms-4">
+            المبلغ الإجمالي:
+        </span>
+    </div>
+</body>
+<script src="./Scripts/Script.js"></script>
+</html>
